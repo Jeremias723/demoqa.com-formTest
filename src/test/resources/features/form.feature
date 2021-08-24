@@ -1,11 +1,17 @@
-Feature: Completado de formulario en demoqa.com
+Feature: Registro en formulario de demoqa.com
 
-  Este feature trata sobre llenar un formulario auntomaticamente
-  utilizando Selenium, Serenity, Cucumber, Junit
+  COMO usuario
+  QUIERO registrarme en la pagina demoqa.com
+  PARA poder ser socio de la web y utilizar el resto de funcionalidades que ofrece
 
-  Scenario Outline: Proceso de completado
+  # Este feature trata sobre llenar un formulario en demoqa.com automaticamente
+  # Utilizando Selenium, Serenity, Junit, Cubumber
 
-    Given El usuario ingresa a demoqa.com
+
+
+  Scenario Outline: Formulario registro - Ejecucion exitosa
+
+    Given Ingresa a demoqa.com
     When Complete con su nombre: <Nombre> y apellido: <Apellido>
     And Complete su E-mail: <E-mail>
     And Indique su genero: <Genero>
@@ -13,11 +19,11 @@ Feature: Completado de formulario en demoqa.com
     And Indique su fecha de nacimiento: <Mes> , <Dia> , <Anio>
     And Selecciona sus hobbies: <Hob1> , <Hob2> , <Hob3>
     And Complete sus aptitudes: <Apt1> , <Apt2> , <Apt3>
-    And El usuario sube la foto: <img>
+    And Sube una foto: <img>
     And Ingresa su direccion: <direccion>
     And Selecciona su estado y ciudad: <estado> , <ciudad>
-    And El usuario hace click en en boton 'Submit'
-    Then Se verificaran los datos enviados
+    And Hace click en en boton 'Submit'
+    Then Verifica el envio de datos
 
     Examples:
       | Nombre   | Apellido | E-mail                    | Genero | Numero     | Mes      | Dia | Anio | Hob1   | Hob2    | Hob3  | Apt1      | Apt2    | Apt3    | img   | direccion    | estado    | ciudad |

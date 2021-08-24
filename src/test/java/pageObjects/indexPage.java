@@ -1,6 +1,7 @@
 package pageObjects;
 
 import net.serenitybdd.core.pages.PageObject;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,6 +11,7 @@ import java.io.File;
 
 public class indexPage extends PageObject {
 
+    // Delclaracion de elementos
     @FindBy(id = "firstName")
     WebElement input_name;
     @FindBy(id = "lastName")
@@ -44,6 +46,8 @@ public class indexPage extends PageObject {
     WebElement select_city;
     @FindBy(id = "submit")
     WebElement btn_submit;
+    @FindBy(id = "example-modal-sizes-title-lg")
+    WebElement text_ThanksFor;
 
     public indexPage(WebDriver driver) {
         PageFactory.initElements(driver,this);
@@ -95,7 +99,6 @@ public class indexPage extends PageObject {
     }
 
     public void insertDate(String month,String day,String year,WebDriver driver) {
-
         input_date.click();
         Select select_month = new Select(driver.findElement(By.className("react-datepicker__month-select")));
         Select select_year = new Select(driver.findElement(By.className("react-datepicker__year-select")));
@@ -112,7 +115,6 @@ public class indexPage extends PageObject {
         input_aptitudes.sendKeys(Keys.ENTER);
         input_aptitudes.sendKeys(apt3);
         input_aptitudes.sendKeys(Keys.ENTER);
-
     }
 
     public void uploadImage(String ruta) {
@@ -155,5 +157,12 @@ public class indexPage extends PageObject {
     }
 
     public void verify() {
+        String actualText = text_ThanksFor.getText();
+        String expectedText = "Thanks for submitting the form";
+        if(actualText.equals(expectedText)){
+            System.out.println("Test passed");
+        }else{
+            System.out.println("Failed test");
+        }
     }
 }

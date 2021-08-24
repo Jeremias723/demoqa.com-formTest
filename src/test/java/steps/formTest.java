@@ -8,23 +8,27 @@ import cucumber.api.java.en.When;
 
 public class formTest extends baseTestSuite{
 
-    @Given("El usuario ingresa a demoqa.com")
+    @Given("Ingresa a demoqa.com")
     public void goToIndex(){
         openDriver();
         driver.get("https://demoqa.com/automation-practice-form");
     }
+
     @When("Complete con su nombre: (.*) y apellido: (.*)")
     public void completeName(String name,String lastName){
         indexPage.insertName(name,lastName);
     }
+
     @And("Complete su E-mail: (.*)")
     public void completeEmail(String email){
         indexPage.insertEmail(email);
     }
+
     @And("Indique su genero: (.*)")
     public void selectGender(String gender){
         indexPage.selectGende(gender);
     }
+
     @And("Complete su numero de telefono: (.*)")
     public void completePhoneNumber(String number){
         indexPage.insertNumber(number);
@@ -43,12 +47,13 @@ public class formTest extends baseTestSuite{
     @And("Complete sus aptitudes: (.*) , (.*) , (.*)")
     public void completeAptitudes(String apt1,String apt2,String apt3){
         indexPage.insertAptitudes(apt1,apt2,apt3);
-
     }
-    @And("El usuario sube la foto: (.*)")
+
+    @And("Sube una foto: (.*)")
     public void uploadPicture(String ruta){
         indexPage.uploadImage(ruta);
     }
+
     @And("Ingresa su direccion: (.*)")
     public void completeAddress(String address){
         indexPage.insertAddress(address);
@@ -58,11 +63,13 @@ public class formTest extends baseTestSuite{
     public void selectCity(String state, String city){
         indexPage.insertStateAndCity(state,city,driver);
     }
-    @And("El usuario hace click en en boton 'Submit'")
+
+    @And("Hace click en en boton 'Submit'")
     public void submitForm(){
         indexPage.submit();
     }
-    @Then("Se verificaran los datos enviados")
+
+    @Then("Verifica el envio de datos")
     public void verifyData(){
         indexPage.verify();
     }

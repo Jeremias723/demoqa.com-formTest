@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class baseTestSuite {
 
-     public WebDriver driver;
+    WebDriver driver;
     indexPage indexPage;
 
     @Before
@@ -24,9 +24,10 @@ public class baseTestSuite {
         driver.manage().window().maximize();
         inicializarPaginas(driver);
     }
+
     @After
     public void closeDriver(){
-        driver.quit();
+        driver.close();
     }
 
     private void inicializarPaginas(WebDriver driver) {
